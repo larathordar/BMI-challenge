@@ -14,16 +14,16 @@ BMICalculator.prototype.metric_bmi = function(obj) {
 
   BMICalculator.prototype.imperial_bmi = function(obj) {
     var weight_lb = obj.weight_lb;
-    var height_feet = object.height_feet;
+    var height_feet = obj.height_feet;
     var height_inch = obj.height_inch;
-    if (weight > 0 && height > 0) {
+    if (weight_lb > 0 && height_feet > 0 && height_inch > 0) {
       var finalBMI = (weight_lb*703)/((height_feet*12)+height_inch)**2
-      obj.bmiValue =  parseFloat(finalBmi.toFixed(2));
+      obj.bmiValue =  parseFloat(finalBMI.toFixed(2));
       setBMIMessage(obj);
     }
   };
 
-  function setBMIMessage (obj) {
+  function setBMIMessage(obj) {
     if (obj.bmiValue < 18.5) {
       obj.bmiMessage = "Underweight"
     }

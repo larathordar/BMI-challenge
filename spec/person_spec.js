@@ -10,7 +10,6 @@ describe("Person", function() {
 //IMPERIAL METHOD SPECS
   it ("should have weight_lb of 110", function() {
       expect(person.weight_lb).toEqual(110);
-
   });
 
   it ("should have height_feet of 5", function() {

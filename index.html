@@ -16,7 +16,13 @@
           var hf = parseFloat($('#height_feet').val());
           var hi = parseFloat($('#height_inch').val());
           var person = new Person({weight: w, height: h, weight_lb: wlb, height_feet: hf, height_inch: hi});
-          person.calculate_bmi();
+
+          if (($('#weight').val() !== "") && ($('#height').val() !== "")) {
+            person.calculate_bmi();
+          } else {
+            person.calculate_bmi_imp();
+          }
+
           $('#display_value').html('Your BMI is ' + person.bmiValue);
           $('#display_message').html('and you are '+ person.bmiMessage);
         });
@@ -37,7 +43,7 @@
       <input type="text" id="weight_lb" placeholder="Weight_lb">
       <input type="text" id="height_feet" placeholder="Height_feet">
       <input type="text" id="height_inch" placeholder="Height_inch">
-            <input type="button" id="calculate" value="Calculate">
+      <input type="button" id="calculate" value="Calculate">
     </form>
     <div>
       <span id="display_value"></span>
