@@ -9,25 +9,35 @@
     <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
     <script type="text/javascript">
       $(document).ready(function () {
-        $('#calculate').click(function () {
+                $('#calculate').click(function () {
           var w = parseFloat($('#weight').val());
           var h = parseFloat($('#height').val());
-          var person = new Person({weight: w, height: h});
+          var wlb = parseFloat($('#weight_lb').val());
+          var hf = parseFloat($('#height_feet').val());
+          var hi = parseFloat($('#height_inch').val());
+          var person = new Person({weight: w, height: h, weight_lb: wlb, height_feet: hf, height_inch: hi});
           person.calculate_bmi();
           $('#display_value').html('Your BMI is ' + person.bmiValue);
           $('#display_message').html('and you are '+ person.bmiMessage);
         });
       });
-    </script>
+      </script>
     <noscript>
       <meta http-equiv="refresh" content="0; URL=http://example.com/noscript.html"/>
     </noscript>
   </head>
   <body>
+    <select>
+      <option value="metric">Metric</option>
+      <option value="imperial">Imperial</option>
+    </select>
     <form>
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
-      <input type="button" id="calculate" value="Calculate">
+      <input type="text" id="weight_lb" placeholder="Weight_lb">
+      <input type="text" id="height_feet" placeholder="Height_feet">
+      <input type="text" id="height_inch" placeholder="Height_inch">
+            <input type="button" id="calculate" value="Calculate">
     </form>
     <div>
       <span id="display_value"></span>
