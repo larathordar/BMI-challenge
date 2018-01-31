@@ -1,7 +1,6 @@
 // src/bmi_calculator.js
 
-function BMICalculator(){
-};
+function BMICalculator() {}
 
 BMICalculator.prototype.metric_bmi = function(obj) {
   var weight = obj.weight;
@@ -11,6 +10,7 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     obj.bmiValue =  parseFloat(finalBmi.toFixed(2));
     setBMIMessage(obj);
   }
+}
 
   BMICalculator.prototype.imperial_bmi = function(obj) {
     var weight_lb = obj.weight_lb;
@@ -21,15 +21,9 @@ BMICalculator.prototype.metric_bmi = function(obj) {
       obj.bmiValue =  parseFloat(finalBmi.toFixed(2));
       setBMIMessage(obj);
     }
+  };
 
-
-
-
-
-
-
-
-  function setBMIMessage (obj){
+  function setBMIMessage (obj) {
     if (obj.bmiValue < 18.5) {
       obj.bmiMessage = "Underweight"
     }
@@ -43,4 +37,3 @@ BMICalculator.prototype.metric_bmi = function(obj) {
       obj.bmiMessage = "Obese"
     }
   }
-};
