@@ -17,7 +17,7 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     var height_feet = object.height_feet;
     var height_inch = obj.height_inch;
     if (weight > 0 && height > 0) {
-      var finalBMI = (weight_lb*703)/((height_feet*12)+height_inch)**2)
+      var finalBMI = (weight_lb*703)/((height_feet*12)+height_inch)**2
       obj.bmiValue =  parseFloat(finalBmi.toFixed(2));
       setBMIMessage(obj);
     }
