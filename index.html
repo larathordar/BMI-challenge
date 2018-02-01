@@ -10,24 +10,37 @@
     <script src="src/bmi_calculator.js"></script>
     <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
     <script type="text/javascript">
-      $(document).ready(function () {
-                $('#calculate').click(function () {
-          var w = parseFloat($('#weight').val());
-          var h = parseFloat($('#height').val());
-          var wlb = parseFloat($('#weight_lb').val());
-          var hf = parseFloat($('#height_feet').val());
-          var hi = parseFloat($('#height_inch').val());
-          var person = new Person({weight: w, height: h, weight_lb: wlb, height_feet: hf, height_inch: hi});
 
-          if (($('#weight').val() !== "") && ($('#height').val() !== "")) {
-            person.calculate_bmi();
-          } else {
-            person.calculate_bmi_imp();
-          }
+      $(document).ready(function () {
+
+        $("#metric_button").click(function(){
+               $(".imperial").hide();
+               $(".metric").show();
+
+           });
+
+       $("#imperial_button").click(function(){
+           $(".imperial").show();
+           $(".metric").hide();
+       });
+
+          $('#calculate').click(function () {
+            var w = parseFloat($('#weight').val());
+            var h = parseFloat($('#height').val());
+            var wlb = parseFloat($('#weight_lb').val());
+            var hf = parseFloat($('#height_feet').val());
+            var hi = parseFloat($('#height_inch').val());
+            var person = new Person({weight: w, height: h, weight_lb: wlb, height_feet: hf, height_inch: hi});
+
+            if (($('#weight').val() !== "") && ($('#height').val() !== "")) {
+              person.calculate_bmi();
+            } else {
+              person.calculate_bmi_imp();
+            }
 
           $('#display_value').html('Your BMI is ' + person.bmiValue);
           $('#display_message').html('and you are '+ person.bmiMessage);
-        });
+          });
       });
       </script>
     <noscript>
@@ -35,35 +48,41 @@
     </noscript>
   </head>
   <body>
-    <class="mainsection">
+    <div class="mainsection">
+
   <div class="option">
-      <div class="btn-group" role="group" aria-label="...">
-      <button  type="button" class="btn btn-default">Metric</button>
-        <button type="button" class="btn btn-default">Imperial</button>
+      <button id="metric_button" type="button" class="metric_button1">Metric</button>
+      <button id="imperial_button" type="button" class="imperial_button1">Imperial</button>
   </div>
 
   <div class="metric">
     <form>
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
-</form>
-    </div>
-    <div class="imperial">
-    <form>
-      <input type="text" id="weight_lb" placeholder="Weight_lb">
-      <input type="text" id="height_feet" placeholder="Height_feet">
-      <input type="text" id="height_inch" placeholder="Height_inch">
-      <input type="button" id="calculate" value="Calculate">
     </form>
   </div>
+
+    <div class="imperial">
+      <form>
+        <input type="text" id="weight_lb" placeholder="Weight_lb">
+        <input type="text" id="height_feet" placeholder="Height_feet">
+        <input type="text" id="height_inch" placeholder="Height_inch">
+      </form>
+    </div>
+
+    <div class="calculate_button">
+      <form>
+        <input type="button" id="calculate" value="Calculate">
+      </form>
+    </div>
+
     <div>
       <span id="display_value"></span>
       <span id="display_message"></span>
+    </div>
 
     </div>
-  </div>
-  <<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   </body>
 </html>
