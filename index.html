@@ -33,22 +33,32 @@
     </noscript>
   </head>
   <body>
+    <div class="mainsection">
+      <div class="optionbuttons">
     <select>
       <option value="metric">Metric</option>
       <option value="imperial">Imperial</option>
     </select>
+  </div>
+  <div class="metric">
     <form>
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
+</form>
+    </div>
+    <div class="imperial">
+    <form>
       <input type="text" id="weight_lb" placeholder="Weight_lb">
       <input type="text" id="height_feet" placeholder="Height_feet">
       <input type="text" id="height_inch" placeholder="Height_inch">
       <input type="button" id="calculate" value="Calculate">
     </form>
+  </div>
     <div>
       <span id="display_value"></span>
       <span id="display_message"></span>
 
     </div>
+  </div>
   </body>
 </html>
