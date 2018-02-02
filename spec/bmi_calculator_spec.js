@@ -5,7 +5,13 @@ describe("BMICalculator", function() {
   var person;
 
   beforeEach(function() {
-    person = new Person({weight: 90, height: 186, weight_lb: 110, height_feet: 5, height_inch: 5});
+    person = new Person({
+      weight: 90,
+      height: 186,
+      weight_lb: 110,
+      height_feet: 5,
+      height_inch: 5
+    });
     calculator = new BMICalculator();
   });
 
